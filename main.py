@@ -30,12 +30,15 @@ while True:
 
 while True:
   try:
-    monthly_necessities = (float(input("🧾 Monthly necessities: ₱")))
-    if monthly_necessities > 0:
-      break
-    print("⚠️ Your necessities must be lower than your monthly salary and greater than 0.")
+      monthly_necessities = float(input("🧾 Monthly necessities: ₱"))
+
+      if 0 < monthly_necessities < monthly_salary:
+          break
+
+      print("⚠️ Necessities must be greater than 0 and lower than your monthly salary.")
+
   except ValueError:
-    print("⚠️ Your necessities must be lower than your monthly salary and greater than 0.")
+      print("⚠️ Please enter a valid number.")
 
 while True:
     try:
@@ -59,7 +62,6 @@ def financial_calculator():
         "monthly_salary": monthly_salary,
         "daily_income": daily_income,
         "price": price,
-        "category": category,
         "monthly_necessities": monthly_necessities,
         "working_days": working_days,
         "disposable_budget": disposable_budget,
@@ -73,11 +75,11 @@ def financial_calculator():
 
 def determine_risk(financial_overview):
      if financial_overview["salary_percentage"] <= 5:
-          return "🟢 LOW 🟢"
+          return "LOW"
      elif financial_overview["salary_percentage"] <= 15:
-          return "🟡 MEDIUM 🟡"
+          return "MEDIUM"
      else:
-          return "🔴 HIGH 🔴"
+          return "HIGH"
 
 def generate_insight(risk):
      if risk == "LOW":
@@ -106,9 +108,24 @@ def generate_insight(risk):
      ⚠️ Buying this immediately could significantly
           reduce your financial flexibility.
 """)
+def verdict(category, risk):
+  verdict_table = {
+    "WANT": {
+            "LOW": "✅ BUY IT - Affordable and low financial impact.",
+            "MEDIUM": "⚠️ THINK ABOUT IT - Consider saving first.",
+            "HIGH": "🛑 DON'T BUY YET - Wait and save before purchasing."
+        },
+        "NEED": {
+            "LOW": "✅ BUY IT - Necessary and financially manageable.",
+            "MEDIUM": "🟡 BUY IF NECESSARY - Prioritize the need, but be careful with your budget.",
+            "HIGH": "⚠️ FIND A CHEAPER OPTION - It's a need, but the cost may strain your finances."
+        }
+    }
+  return verdict_table[category][risk]
 
-def display_results(financial_overview, risk, insight):
-  total_month = financial_overview["price"]/ financial_overview["monthly_salary"]
+def display_results(financial_overview, risk, insight, final_verdict):
+  months = int(financial_overview["months_needed"])
+  days = round((financial_overview["months_needed"] - months) * 30)
   print(f"""
 ═══════════════════════════════════════════════════
             📊 FINANCIAL OVERVIEW 
@@ -122,7 +139,7 @@ def display_results(financial_overview, risk, insight):
 ═══════════════════════════════════════════════════
 💸 Salary percentage: {financial_overview["salary_percentage"]:.2f}%
 📆 Working days required: {round(financial_overview["price"]/financial_overview["daily_income"])} days
-🗓️ Saving time: {int(total_month / 1)} months and {round(total_month % 1)*31} days 
+🗓️ Saving time: {months} months and {days} days 
 📦 Cost per month (12 months): ₱{financial_overview["monthly_value"]:.2f}
 ═══════════════════════════════════════════════════
                🚦 FINANCIAL RISK
@@ -136,15 +153,41 @@ def display_results(financial_overview, risk, insight):
                🎯 FINAL VERDICT 
 ═══════════════════════════════════════════════════
                     {insight}
+{final_verdict}
 ═══════════════════════════════════════════════════
 """)  
+def convince_me():
+  while True:
+    try:
+      convince = input("Convince me more? (YES or NO)")
+      if convince == "YES":
+        break
+      print("Please enter YES or NO.")
+    except ValueError:
+      print("Please enter YES / NO.")
+print("""
+1. Daily
+2. Weekly
+3. Monthly
+4. Rarely""") 
+how_often = input("How often will you use it? ")
+
+
+
+print("How long do you expect it to last?")
+lifespan = input("Months: ")
+
+alternative = input("Is there a cheaper alternative YES / NO: ")
+  
 #     return
 # def main():
 
 #      if __name__ == "__main__":
 #          main()
 
-financial_overview = financial_calculator()
-risk = determine_risk(financial_overview)
-insight = generate_insight(risk)
-display_results(financial_overview, risk, insight)
+# financial_overview = financial_calculator()
+# risk = determine_risk(financial_overview)
+# insight = generate_insight(risk)
+# final_verdict = verdict(category, risk)
+# display_results(financial_overview, risk, insight, final_verdict)
+convince_me()
