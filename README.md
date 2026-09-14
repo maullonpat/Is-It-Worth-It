@@ -51,4 +51,4 @@ Working days: 22
           reduce your financial flexibility.
 
 🛑 DON'T BUY YET - Wait and save before purchasing.
-═══════════════════════════════════════════════════```
+═══════════════════════════════════════════════════
