@@ -1,6 +1,6 @@
 Sample Input (WANT):
 \nITEM iPhone Duo priced at 159,990
-\nSalary: 30,000
+/nSalary: 30,000
 \nMonthly Bills: 16850
 \nWorking days: 22
 
