@@ -1,4 +1,4 @@
-**Sample Input (WANT):  **
+**Sample Input (WANT):**  
 ITEM iPhone Duo priced at 159,990  
 Salary: 30,000  
 Monthly Bills: 16850  
