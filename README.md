@@ -1,10 +1,10 @@
-Sample Input (WANT):  
+**Sample Input (WANT):  **
 ITEM iPhone Duo priced at 159,990  
 Salary: 30,000  
-nMonthly Bills: 16850  
+Monthly Bills: 16850  
 Working days: 22  
 
-Sample Output:
+**Sample Output:**
 ```
 ═══════════════════════════════════════════════════
                ❓IS IT WORTH IT❓
