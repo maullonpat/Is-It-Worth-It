@@ -5,6 +5,7 @@ Monthly Bills: 16850
 Working days: 22
 
 Sample Output:
+##
 ═══════════════════════════════════════════════════
                ❓IS IT WORTH IT❓
 ═══════════════════════════════════════════════════
@@ -40,6 +41,7 @@ Sample Output:
                🎯 FINAL VERDICT 
 ═══════════════════════════════════════════════════
                     
+  
           🔴 CONSIDER WAITING OR SAVING
      
      This purchase represents a large portion of
