@@ -1,8 +1,8 @@
 Sample Input (WANT):
-ITEM iPhone Duo priced at 159,990
-Salary: 30,000
-Monthly Bills: 16850
-Working days: 22
+\nITEM iPhone Duo priced at 159,990
+\nSalary: 30,000
+\nMonthly Bills: 16850
+\nWorking days: 22
 
 Sample Output:
 ```
